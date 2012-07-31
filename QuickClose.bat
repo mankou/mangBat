@@ -1,4 +1,4 @@
-::last modify:11:34 2012-5-13
+::last modify:07:53 2012-5-14
 ::Author:mang
 ::Version:1.0
 ::Function:快速关闭相关程序
@@ -11,7 +11,7 @@ path=%path%;
 echo close wiz......
 @taskkill /f /t /im Wiz.exe
 echo close Evernote......
-taskkill /f /t /im Evernote.exe
+taskkill /f /t /im EvernoteTray.exe
 echo close AutoHotkey......
 taskkill /f /t /im AutoHotkey.exe
 echo close NutstoreClient......
