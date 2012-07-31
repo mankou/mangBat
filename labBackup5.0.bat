@@ -48,13 +48,13 @@ rem 备份注册表
 ::---------------备份Time.log并使用新的Time.log-------------------
 rem 备份Time.log
 ::变量TimeNormal为 Time.log模板的源路径
-@set TimeLogSource="%klivePath%\applicationData\TimeLog\TimeNormal.log"
+@set TimeLogSource=%klivePath%\applicationData\TimeLog\TimeNormal.log
 ::变量TimeLog 为Time.log的目的路径
-@set TimeLog="%klivePath%\applicationData\TimeLog\Time.log"
+@set TimeLog=%klivePath%\applicationData\TimeLog\Time.log
 ::备份Time.log
-copy %TimeLog% "E:\GTD\weekworkBackup\Time[%date%].log" 
+copy "%TimeLog%" "E:\GTD\weekworkBackup\Time[%date%].log" 
 ::使用Time.log的模板替换旧的Time.log
-copy %TimeLogSource% %TimeLog%
+copy "%TimeLogSource%" "%TimeLog%"
 
 ::---------------备份firefox用户目录----------------
 ::设置备份firefox时的源路径
