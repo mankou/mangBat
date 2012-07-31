@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年1月15日12时14分23秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年2月19日22时00分40秒
 ::author:mang
-::version:4.5
+::version:4.6
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -25,7 +25,7 @@ call backupSVN.bat
 ::备份weekwork
 rem 备份vimwiki中的project 及weekwork
 HaoZipC a -tzip E:\GTD\weekworkBackup\"[ProjectBackup][%name%]" "E:\netDisk\klive\wiki\work\html\*.*"
-copy E:\netDisk\klive\文档\Weekwork.mmap E:\GTD\weekworkBackup\"[weekworkBackup][%name%]"  
+copy E:\netDisk\klive\文档\Weekwork.mmap E:\GTD\weekworkBackup\"[weekworkBackup][%name%].mmap"  
 
 
 rem 备份注册表
