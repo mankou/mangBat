@@ -1,7 +1,7 @@
 ::create 2011年12月24日14时35分14秒 
-::lastmodify:2011年12月24日14时35分23秒
+::lastmodify:2012年4月20日16时38分06秒
 ::author mang
-::version 1.0
+::version 1.2
 ::功能：备份wiz用户数据的批处理文件，该批处理文件将被加入计划任务，用于定期自动备份wiz数据
 ::使用：在设置相关变量部分设置自己的路径及文件名。在21行 及24行
 
@@ -26,3 +26,15 @@ set wizBackupName=%wizBackupPath%"[wizbackup][%name%]"
 ::##########备份####################
 ::压缩备份
 HaoZipC a -tzip %wizBackupName%  "E:\Document\ApplicationData\Wiz"
+@rem 压缩完成
+
+::#############删除Deleted Items##########下的所有目录及文件
+::虽然删除了文件，但在wiz仍然存在，但你试图打开文档时却打不开，这可能与index有关，现在暂时先不解决这个问题了。先放下来。
+@echo off
+cd /d E:\Document\ApplicationData\Wiz\Data\Default\Deleted Items
+for /d %%i in (*) do (
+    rd /s /q "%%i"
+    del /a /f /q *.*
+)
+echo 删除完成！
+@pause
