@@ -1,6 +1,6 @@
 ::create:2011年5月9日16时46分04秒  lastmodify:2012年1月15日12时14分23秒
 ::author:mang
-::version:4.4
+::version:4.5
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -23,8 +23,10 @@ rem 备份ftp设置
 rem 备份svn
 call backupSVN.bat
 ::备份weekwork
-rem 备份project 
-HaoZipC a -tzip E:\GTD\weekworkBackup\"[weekwordBackup][%name%]" "E:\netDisk\klive\wiki\work\html\*.*"
+rem 备份vimwiki中的project 及weekwork
+HaoZipC a -tzip E:\GTD\weekworkBackup\"[ProjectBackup][%name%]" "E:\netDisk\klive\wiki\work\html\*.*"
+copy E:\netDisk\klive\文档\Weekwork.mmap E:\GTD\weekworkBackup\"[weekworkBackup][%name%]"  
+
 
 rem 备份注册表
 ::备份系统注册表,备份路径为"E:\labBackup\Config Backup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
