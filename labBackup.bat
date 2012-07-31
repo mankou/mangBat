@@ -1,7 +1,7 @@
-::lastmodify:2012年4月15日19时04分10秒
+::lastmodify:19:30 2012-6-24
 ::create:15:58 2012-5-21
 ::author:mang
-::version:5.1
+::version:5.2
 ::用作lab备份的批处理文件
 
 ::-----规范说明------
@@ -85,6 +85,16 @@ HaozipC a -tzip "F:\share\FTP\mang421\[lab E盘备份][%name%]" E:\Document E:\e-bo
 ::压缩D盘相关目录,压缩文件格式为zip,命名格式为：[lab D盘备份][当前日期] 如：[lab D盘备份][2011-05-07 星期一]
 rem D盘相关备份
 HaoZipC a -tzip "F:\share\FTP\mang421\[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath
+
+
+::-------------------删除ditto旧的数据库，启用新的数据库文件--------------------
+::因为ditto条目太多就比较慢，所以这里定期清理一次。
+
+@taskkill /f /t /im ditto.exe
+::先删除旧的文件
+del e:\Document\ApplicationData\ditto\Ditto.db
+::把重命名别一个文件为 ditto.db
+copy e:\Document\ApplicationData\ditto\Ditto_2.db e:\Document\ApplicationData\ditto\Ditto.db
 
 ::-----------开启FTP服务------------------
 "FileZilla Server"/start
