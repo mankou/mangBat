@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年2月19日22时00分40秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年4月1日22时47分24秒
 ::author:mang
-::version:4.6
+::version:4.7
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -37,7 +37,7 @@ rem E盘相关备份
 HaozipC a -tzip F:\share\FTP\mang421\"[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 E:\"研&项&论&杂" E:\Repositories E:\netDisk E:\other
 ::压缩D盘相关目录,压缩文件格式为zip,命名格式为：[lab D盘备份][当前日期] 如：[lab D盘备份][2011-05-07 星期一]
 rem D盘相关备份
-HaoZipC a -tzip F:\share\FTP\mang421\"[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath
+HaoZipC a -tzip F:\share\FTP\mang421\"[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath　"C:\Documents and Settings\mang2\Application Data\Mozilla\Firefox\Profiles"
 ::开启FTP服务
 "FileZilla Server"/start
 pause
