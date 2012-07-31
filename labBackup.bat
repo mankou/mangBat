@@ -1,6 +1,7 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年4月15日19时04分10秒
+::lastmodify:2012年4月15日19时04分10秒
+::create:15:45 2012-5-21
 ::author:mang
-::version:5.0
+::version:5.1
 ::用作lab备份的批处理文件
 
 ::-----规范说明------
@@ -8,6 +9,7 @@
 ::各自模块中的源路径以Source结尾 如vimrcSource
 ::各自模块中的目的路径以Backup结尾 如firefoxBackup
 ::与路径相关的变量赋值时不要加引号，免得以后引用变量时又加引号，所以统一在引用时加引号。其实引号是为了把空格括起来。
+::与路径相关的变量赋值时最后不要有\,如 @set pentadactylHome=C:\Documents and Settings\mang2  mang2后面没有\
 
 rem 设置全局相关的变量
 ::全局变量指公用的变量，并不是指在文件中全局的。至于各自备份需要的变量放在各自的模块种。
@@ -66,7 +68,12 @@ copy "%TimeLogSource%" "%TimeLog%"
 taskkill /f /t /im firefox.exe
 ::拷备firefox用户目录,/y :强制覆盖 /s 复制目录及子目录
 xcopy  "%firefoxSource%" "%firefoxBackup%"  /y /s
-
+::设置pentadactyl父目录路径
+@set pentadactylHome=C:\Documents and Settings\mang2
+::备份pentadactyl用户目录
+xcopy "%pentadactylHome%\pentadactyl" "%firefoxBackup%\pentadactyl" /y /s 
+::备份pentadactylrc
+copy /y "%pentadactylHome%"\_pentadactylrc "%firefoxBackup%"
 ::------------------备份E盘相关目录-----------------------------
 ::压缩E盘相关目录,压缩文件格式为zip,命名格式为：[lab E盘备份][当前日期] 如：[lab E盘备份][2011-05-07 星期一]
 rem E盘相关备份
