@@ -1,14 +1,14 @@
 ::create:23:29 2012-4-8 lastmodify:23:30 2012-4-8
 ::author:mang
 ::version:1.0  preversion:--
-::ç›®çš„:è‡ªåŠ¨å¯¹Time.logæ–‡ä»¶æ·»åŠ æ—¶é—´æˆ³,å®ç°äº‹ç‰©æµæ°´å¸
-::å…·ä½“æ“ä½œæµç¨‹:ahk é€šè¿‡å¿«æ·é”®è°ƒç”¨è¯¥æ‰¹å¤„ç†,å…ˆç”¨è®°äº‹æœ¬æ‰“å¼€Time.log,ç³»ç»Ÿä¼šè‡ªåŠ¨æ·»åŠ æ—¶é—´æˆ³,ç„¶åç”¨gvimæ‰“å¼€åˆšä¿å­˜çš„Time.logè¿™æ ·ç¼–è¾‘æµè§ˆæ–¹ä¾¿.
+::Ä¿µÄ:×Ô¶¯¶ÔTime.logÎÄ¼şÌí¼ÓÊ±¼ä´Á,ÊµÏÖÊÂÎïÁ÷Ë®ÕÊ
+::¾ßÌå²Ù×÷Á÷³Ì:ahk Í¨¹ı¿ì½İ¼üµ÷ÓÃ¸ÃÅú´¦Àí,ÏÈÓÃ¼ÇÊÂ±¾´ò¿ªTime.log,ÏµÍ³»á×Ô¶¯Ìí¼ÓÊ±¼ä´Á,È»ºóÓÃgvim´ò¿ª¸Õ±£´æµÄTime.logÕâÑù±à¼­ä¯ÀÀ·½±ã.
 ::-------------------------
 @path=%path%;"C:\WINDOWS\";"D:\Program Files\Vim\vim73\"
 @set TimeLog="E:\ApplicationData\netDisk\klive\applicationData\TimeLog\Time.log"
-::åŠ ä¸Šstartçš„ç”¨æ„ï¼šåªæœ‰è¿™æ ·ç”¨taskkillæ‰å¯ä»¥å…³æ‰notepad.exeå½“ç„¶ä¹Ÿå¯ä»¥ç›´æ¥ç”¨å‘½ä»¤ã€€NOTEPAD %TimeLog% ä½†ç”¨taskkillå¹¶ä¸æ‰çª—å£.
+::¼ÓÉÏstartµÄÓÃÒâ£ºÖ»ÓĞÕâÑùÓÃtaskkill²Å¿ÉÒÔ¹Øµônotepad.exeµ±È»Ò²¿ÉÒÔÖ±½ÓÓÃÃüÁî¡¡NOTEPAD %TimeLog% µ«ÓÃtaskkill²¢²»µô´°¿Ú.
 start NOTEPAD %TimeLog% 
 taskkill  /t /im notepad.exe
-::åŠ pauseçš„ç”¨æ„,å› ä¸ºtaskkillå…³é—­notepadçª—å£æ—¶ä¼šæç¤ºä¿å­˜,ç›®å‰è¿˜æ²¡æœ‰å‘ç°è‡ªåŠ¨ä¿å­˜çš„å‘½ä»¤,æ‰€ä»¥è¿™é‡Œæš‚åœä¸‹æ‰‹åŠ¨ç¡®è®¤ä¿å­˜,å†éšä¾¿æŒ‰ä¸ªé”®ç»§ç»­.å¦‚æœç”¨ taskkill /f /t /im notepad.exe åˆ™ä¸ä¿å­˜ç›´æ¥å…³é—­äº†,è¾¾ä¸åˆ°æ•ˆæœ
+::¼ÓpauseµÄÓÃÒâ,ÒòÎªtaskkill¹Ø±Õnotepad´°¿ÚÊ±»áÌáÊ¾±£´æ,Ä¿Ç°»¹Ã»ÓĞ·¢ÏÖ×Ô¶¯±£´æµÄÃüÁî,ËùÒÔÕâÀïÔİÍ£ÏÂÊÖ¶¯È·ÈÏ±£´æ,ÔÙËæ±ã°´¸ö¼ü¼ÌĞø.Èç¹ûÓÃ taskkill /f /t /im notepad.exe Ôò²»±£´æÖ±½Ó¹Ø±ÕÁË,´ï²»µ½Ğ§¹û
 pause
 start gvim  %TimeLog%
