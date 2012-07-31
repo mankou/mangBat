@@ -1,7 +1,7 @@
-::lastmodify:19:30 2012-6-24
+::lastmodify:18:37 2012-7-27
 ::create:15:58 2012-5-21
 ::author:mang
-::version:5.2
+::version:5.3
 ::用作lab备份的批处理文件
 
 ::-----规范说明------
@@ -20,7 +20,7 @@ rem 设置全局相关的变量
 ::设置网盘路径
 @set klivePath=E:\ApplicationData\netDisk\klive
 ::设置备份一般型配置文件时的目的路径 如_vimrc ftp
-@set configBackupPath=E:\labBackup\Config Backup
+@set configBackupPath=E:\labBackup\ConfigBackup
 
 ::------------备份_vimrc-----------------
 rem 备份_vimrc
@@ -44,10 +44,6 @@ rem 备份vimwiki中的project 及weekwork
 
 copy "E:\ApplicationData\netDisk\klive\applicationData\TimeLog\ToDo make you better.wiki" "e:\GTD\weekworkBackup\ToDo make you better[%name%].wiki"
 
-rem 备份注册表
-::备份系统注册表,备份路径为"E:\labBackup\Config Backup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
-::对下面这个命令 用双引号把config backup括起来，不能导出注册表，也不报错。不知为何？但是对于其它我用过的命令双引号括在整个路径上与括在有空格的目录上是一样的效果。
-@regedit /e "E:\labBackup\Config Backup\lab注册表备份\[lab][%name%].reg"
 
 ::---------------备份Time.log并使用新的Time.log-------------------
 rem 备份Time.log
@@ -61,11 +57,28 @@ copy "%TimeLog%" "E:\GTD\weekworkBackup\Time[%date%].log"
 copy "%TimeLogSource%" "%TimeLog%"
 
 
+::---------------备份计划任务目录-------------------
+@set taskSource=C:\WINDOWS\Tasks
+@set taskBackup=E:\labBackup\Config Backup\system\Tasks
+xcopy  "%taskSource%" "%taskBackup%"  /y /s
+
+::--------------备份startup目录---------------------
+@set startupSource=C:\Documents and Settings\mang2\「开始」菜单\程序\启动
+@set startupBackup=E:\labBackup\Config Backup\system\startup
+xcopy  "%startupSource%" "%startupBackup%"  /y /s
+
+::--------------备份注册表----------------------
+rem 备份注册表
+::备份系统注册表,备份路径为"E:\labBackup\ConfigBackup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
+::对下面这个命令 用双引号把config backup括起来，不能导出注册表，也不报错。不知为何？但是对于其它我用过的命令双引号括在整个路径上与括在有空格的目录上是一样的效果。
+@set regeditBackup=E:\labBackup\ConfigBackup\system\regedit
+@regedit /e "%regeditBackup%\[lab][%name%].reg"
+
 ::---------------备份firefox用户目录----------------
 ::设置备份firefox时的源路径
 @set firefoxSource=C:\Documents and Settings\mang2\Application Data\Mozilla\Firefox\Profiles
 ::设置备份firefox用户目录的目的路径
-@set firefoxBackup=E:\labBackup\Config Backup\firefox备份
+@set firefoxBackup=E:\labBackup\ConfigBackup\firefoxBackup
 ::先关掉firefox的进程再复制
 taskkill /f /t /im firefox.exe
 ::拷备firefox用户目录,/y :强制覆盖 /s 复制目录及子目录
