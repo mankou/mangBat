@@ -1,0 +1,4 @@
+**该文件用于辅助copyLog.bat进行复制操作
+**用法:第三行填写源路径　第四行填写目标路径　具该文件需与copyLog.bat在同一目录下
+E:\网盘\dbank\My DBank\wiki\wikitest\html\main.html
+C:\Documents and Settings\mang\桌面
