@@ -6,5 +6,5 @@
 
 path=D:\Program Files\Mozilla Firefox\
 ::用start的意思是计划任务执行完该批处理文件后能自动退出dos窗口。当然不加start你直接运行该bat也能退出dos窗口，但计划任务不能退出。
-start firefox https://i.doit.im/home/ http://www.ccw.com.cn/ http://www.computer.org/portal/web/computingnow/computer E:/ApplicationData/netDisk/klive/wiki/ithink/html/DailyRead.html   
+start firefox https://i.doit.im/home/ http://www.ccw.com.cn/ http://www.computer.org/portal/web/computingnow/computer file:///E:/ApplicationData/netDisk/klive/wiki/ithink/html/DailyRead.html 
 ::pause
