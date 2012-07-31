@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年4月1日22时47分24秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年4月8日19时24分15秒
 ::author:mang
-::version:4.7
+::version:4.8
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -34,7 +34,7 @@ rem 备份注册表
 @regedit /e "E:\labBackup\Config Backup\lab注册表备份\[lab][%name%].reg"
 ::压缩E盘相关目录,压缩文件格式为zip,命名格式为：[lab E盘备份][当前日期] 如：[lab E盘备份][2011-05-07 星期一]
 rem E盘相关备份
-HaozipC a -tzip F:\share\FTP\mang421\"[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 E:\"研&项&论&杂" E:\Repositories E:\netDisk E:\other
+HaozipC a -tzip F:\share\FTP\mang421\"[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 E:\"研&项&论&杂" E:\Repositories E:\ApplicationData E:\other
 ::压缩D盘相关目录,压缩文件格式为zip,命名格式为：[lab D盘备份][当前日期] 如：[lab D盘备份][2011-05-07 星期一]
 rem D盘相关备份
 HaoZipC a -tzip F:\share\FTP\mang421\"[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath　"C:\Documents and Settings\mang2\Application Data\Mozilla\Firefox\Profiles"
