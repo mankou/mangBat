@@ -1,4 +1,4 @@
-::lastmodify:18:37 2012-7-27
+::lastmodify:03:28 2012-7-29
 ::create:15:58 2012-5-21
 ::author:mang
 ::version:5.3
@@ -59,18 +59,18 @@ copy "%TimeLogSource%" "%TimeLog%"
 
 ::---------------备份计划任务目录-------------------
 @set taskSource=C:\WINDOWS\Tasks
-@set taskBackup=E:\labBackup\Config Backup\system\Tasks
+@set taskBackup=E:\labBackup\ConfigBackup\system\Tasks
 xcopy  "%taskSource%" "%taskBackup%"  /y /s
 
 ::--------------备份startup目录---------------------
 @set startupSource=C:\Documents and Settings\mang2\「开始」菜单\程序\启动
-@set startupBackup=E:\labBackup\Config Backup\system\startup
+@set startupBackup=E:\labBackup\ConfigBackup\system\startup
 xcopy  "%startupSource%" "%startupBackup%"  /y /s
 
 ::--------------备份注册表----------------------
 rem 备份注册表
 ::备份系统注册表,备份路径为"E:\labBackup\ConfigBackup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
-::对下面这个命令 用双引号把config backup括起来，不能导出注册表，也不报错。不知为何？但是对于其它我用过的命令双引号括在整个路径上与括在有空格的目录上是一样的效果。
+::对下面这个命令 用双引号把configbackup括起来，不能导出注册表，也不报错。不知为何？但是对于其它我用过的命令双引号括在整个路径上与括在有空格的目录上是一样的效果。
 @set regeditBackup=E:\labBackup\ConfigBackup\system\regedit
 @regedit /e "%regeditBackup%\[lab][%name%].reg"
 
