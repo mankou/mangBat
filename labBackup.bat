@@ -1,7 +1,7 @@
-::lastmodify:03:28 2012-7-29
 ::create:15:58 2012-5-21
+::lastmodify:11:40 2012-7-31
 ::author:mang
-::version:5.3
+::version:5.4
 ::用作lab备份的批处理文件
 
 ::-----规范说明------
@@ -47,14 +47,11 @@ copy "E:\ApplicationData\netDisk\klive\applicationData\TimeLog\ToDo make you bet
 
 ::---------------备份Time.log并使用新的Time.log-------------------
 rem 备份Time.log
-::变量TimeNormal为 Time.log模板的源路径
-@set TimeLogSource=%klivePath%\applicationData\TimeLog\TimeNormal.log
 ::变量TimeLog 为Time.log的目的路径
-@set TimeLog=%klivePath%\applicationData\TimeLog\Time.log
+@set TimeLogSource=%klivePath%\applicationData\TimeLog\Time.log
+@set TimeLogBackup=E:\GTD\weekworkBackup\Time[%date%].log 
 ::备份Time.log
-copy "%TimeLog%" "E:\GTD\weekworkBackup\Time[%date%].log" 
-::使用Time.log的模板替换旧的Time.log
-copy "%TimeLogSource%" "%TimeLog%"
+copy "%TimeLogSource%" "%TimeLogBackup%"
 
 
 ::---------------备份计划任务目录-------------------
