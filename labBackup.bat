@@ -1,5 +1,5 @@
 ::lastmodify:2012年4月15日19时04分10秒
-::create:15:45 2012-5-21
+::create:15:58 2012-5-21
 ::author:mang
 ::version:5.1
 ::用作lab备份的批处理文件
@@ -42,6 +42,7 @@ rem 备份vimwiki中的project 及weekwork
 ::于2012-04-15停止使用weekwrk.mmap 由wiz-—&重要事务提醒 代替
 ::copy "%klivePath%\document\pomodoro\Weekwork.mmap" "E:\GTD\weekworkBackup\[weekworkBackup][%name%].mmap"  
 
+copy "E:\ApplicationData\netDisk\klive\applicationData\TimeLog\ToDo make you better.wiki" "e:\GTD\weekworkBackup\ToDo make you better[%name%].wiki"
 
 rem 备份注册表
 ::备份系统注册表,备份路径为"E:\labBackup\Config Backup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
@@ -58,6 +59,7 @@ rem 备份Time.log
 copy "%TimeLog%" "E:\GTD\weekworkBackup\Time[%date%].log" 
 ::使用Time.log的模板替换旧的Time.log
 copy "%TimeLogSource%" "%TimeLog%"
+
 
 ::---------------备份firefox用户目录----------------
 ::设置备份firefox时的源路径
