@@ -37,7 +37,8 @@ call backupSVN.bat
 ::---------------备份weekwork--------------------------
 rem 备份vimwiki中的project 及weekwork
 @HaoZipC a -tzip "E:\GTD\weekworkBackup\[ProjectBackup][%name%]" "%klivePath%\wiki\work\html\*.*"
-copy "%klivePath%\document\pomodoro\Weekwork.mmap" "E:\GTD\weekworkBackup\[weekworkBackup][%name%].mmap"  
+::于2012-04-15停止使用weekwrk.mmap 由wiz-—&重要事务提醒 代替
+::copy "%klivePath%\document\pomodoro\Weekwork.mmap" "E:\GTD\weekworkBackup\[weekworkBackup][%name%].mmap"  
 
 
 rem 备份注册表
