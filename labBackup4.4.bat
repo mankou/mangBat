@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年1月3日15时20分51秒9秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年1月15日12时14分23秒
 ::author:mang
-::version:4.3
+::version:4.4
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -13,7 +13,7 @@ rem 设置相关变量
 
 ::备份_vimrc
 rem 备份_vimrc
-@copy "D:\Program Files\Vim\_vimrc" "%configBackupPath%\_vimrc[备份于lab][%date%]" 
+@copy "D:\Program Files\Vim\_vimrc" "%configBackupPath%\vimrc\_vimrc[备份于lab][%date%]" 
 
 ::备份ftp设置
 rem 备份ftp设置
