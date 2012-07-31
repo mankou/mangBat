@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年4月8日19时24分15秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年4月9日00时02分28秒
 ::author:mang
-::version:4.8
+::version:4.9
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -32,6 +32,19 @@ rem 备份注册表
 ::备份系统注册表,备份路径为"E:\labBackup\Config Backup\lab注册表备份\ 命名格式为[lab][当前日期].reg 如[lab][2011-05-07 星期一].reg
 ::对下面这个命令 用双引号把config backup括起来，不能导出注册表，也不报错。不知为何？但是对于其它我用过的命令双引号括在整个路径上与括在有空格的目录上是一样的效果。
 @regedit /e "E:\labBackup\Config Backup\lab注册表备份\[lab][%name%].reg"
+
+::备份Time.log并使用新的Time.log
+rem 备份Time.log
+::变量TimeNormal为 Time.log模板的源路径
+@set TimeNormal="E:\ApplicationData\netDisk\klive\applicationData\TimeLog\TimeNormal.log"
+::变量TimeLog 为Time.log的目的路径
+@set TimeLog="E:\ApplicationData\netDisk\klive\applicationData\TimeLog\Time.log"
+::备份Time.log
+copy %TimeLog% "E:\GTD\weekworkBackup\[Time][%date%].log" 
+::使用Time.log的模板替换旧的Time.log
+copy %TimeNormal% %TimeLog%
+
+
 ::压缩E盘相关目录,压缩文件格式为zip,命名格式为：[lab E盘备份][当前日期] 如：[lab E盘备份][2011-05-07 星期一]
 rem E盘相关备份
 HaozipC a -tzip F:\share\FTP\mang421\"[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 E:\"研&项&论&杂" E:\Repositories E:\ApplicationData E:\other
