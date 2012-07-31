@@ -1,6 +1,6 @@
-::create:2011年5月9日16时46分04秒  lastmodify:2012年1月2日19时26分05秒9秒
+::create:2011年5月9日16时46分04秒  lastmodify:2012年1月3日15时20分51秒9秒
 ::author:mang
-::version:4.2
+::version:4.3
 ::用作lab备份的批处理文件
 
 rem 设置相关变量
@@ -23,7 +23,7 @@ rem 备份ftp设置
 rem 备份svn
 call backupSVN.bat
 ::备份weekwork
-rem 备份weekwork
+rem 备份project 
 HaoZipC a -tzip E:\GTD\weekworkBackup\"[weekwordBackup][%name%]" "E:\netDisk\klive\wiki\work\html\*.*"
 
 rem 备份注册表
