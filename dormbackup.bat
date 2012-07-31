@@ -1,5 +1,5 @@
 ::create:2011年7月28日01时23分11秒
-::lastmodify:18:09 2012-7-27
+::lastmodify:08:43 2012-7-29
 ::author:mang
 ::version:2.0
 ::用作drom备份的批处理文件,主要用于备份C盘相关目录　d盘program 目录下不能设置用户路径的程序的用户目录如vim
@@ -17,13 +17,11 @@ HaoZipC a -tzip "F:\ConfigBackup\聊天记录\[dorm][ 淘宝聊天记录][%name%]" "D:\Pro
 ::-----备份dorm淘宝聊天记录-----------------
 
 ::--------备份vim---------
-copy "D:\Program Files\Vim" "F:\ConfigBackup\-vimrc[dorm][windows][%date%backup]"
-::--------备份vim---------
 set vimBackup=%configBackupPath%\vim
 set vimSource=d:\Program Files\Vim
 ::备份vim目录,/y :强制覆盖 /s 复制目录及子目录
 xcopy "%vimSource%" "%vimBackup%" /y /s 
-
+::--------备份vim---------
 ::------------------备份firefox目录-----------------------
 set firefoxBackup=%configBackupPath%\firefoxBackup
 set firefoxSource=C:\Users\mang\AppData\Roaming\Mozilla\Firefox\Profiles
