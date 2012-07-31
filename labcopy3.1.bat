@@ -1,5 +1,5 @@
-::{create:2011年6月27日23时41分23秒}{last modify:2012年1月1日14时46分49秒秒
-::version:3.0
+::{create:2011年6月27日23时41分23秒}{last modify:09:38 2012-4-15
+::version:3.1
 ::该批处理文件用来备份gtd相关文档。目前包括WorkListBackward(C).xlsx
 ::由于GTD目录采用git进行版本控制，所以这里不再备份 手册 流程。
 
@@ -14,7 +14,7 @@
 ::设置环境变量
 path=c:\windows\system32
 ::从网盘备份worklistbackward.xlsx
-copy E:\netDisk\klive\文档\pomodoro\WorkListBackward(C).xlsx  E:\GTD 
+copy E:\ApplicationData\netDisk\klive\文档\pomodoro\WorkListBackward(C).xlsx  E:\GTD 
 
 ::-------------------------------------------------------------------
 ::以下命令已经作废，这里为了以后方便浏览，把以前的命令写到这里，便于以后参考。
