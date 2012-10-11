@@ -1,7 +1,7 @@
 ::create:2011年7月28日01时23分11秒
-::lastmodify:08:43 2012-7-29
+::lastmodify:21:13 2012-10-11
 ::author:mang
-::version:2.0
+::version:2.1
 ::用作drom备份的批处理文件,主要用于备份C盘相关目录　d盘program 目录下不能设置用户路径的程序的用户目录如vim
 
 ::设置环境变量
@@ -13,6 +13,7 @@ set configBackupPath=F:\ConfigBackup
 
 
 ::-----备份dorm淘宝聊天记录-----------------
+::这里只备份淘宝聊天记录是因为淘宝不能设置用户文件所在路径
 HaoZipC a -tzip "F:\ConfigBackup\聊天记录\[dorm][ 淘宝聊天记录][%name%]" "D:\Program Files\AliWangWang\profiles\cntaobaoman1m"
 ::-----备份dorm淘宝聊天记录-----------------
 
@@ -59,3 +60,9 @@ xcopy "%startupSource%" "%startupBackup%" /y /s
 set regeditBackup=%configBackupPath%\system\regedit
 regedit /e "%regeditBackup%\[dorm][注册表备份][%name%].reg"
 ::-----------------备份注册表--------------
+
+::-----备份FTP配置文件----------------
+::备份ftp配置文件
+rem 备份ftp设置
+@copy "D:\Program Files\FileZilla Server\FileZilla Server.xml" "%configBackupPath%\FTP\FileZilla Server[备份于dorm][%date%].xml"
+::-----备份FTP配置文件----------------
