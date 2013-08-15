@@ -1,4 +1,4 @@
-::modify:2013-8-11 22:06:21
+::modify:2013-4-16 20:03:44
 ::create:2012-06-16
 ::version 2.0
 ::author mang
@@ -35,5 +35,4 @@ start firefox http://www.leiphone.com/
 
 ::infoq
 start http://www.infoq.com/cn
-
 ::pause

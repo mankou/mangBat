@@ -1,8 +1,11 @@
 ::create:15:58 2012-5-21
-::lastmodify:11:40 2012-7-31
+::lastmodify:2012-11-5 21:09:45
 ::author:mang
-::version:5.4
+::version:6.0
 ::用作lab备份的批处理文件
+::***********历史说明*****************
+	::version6.0 由于crashplan基本取代了该批处理，这里注释了大部分功能。只留下部分task startup  注册表  更新ditto的部分
+::***********历史说明*****************
 
 ::-----规范说明------
 ::公用性质的与路径有关的变量以path结尾 如configBackupPath
@@ -23,26 +26,27 @@ rem 设置全局相关的变量
 @set configBackupPath=E:\labBackup\ConfigBackup
 
 ::------------备份_vimrc-----------------
-rem 备份_vimrc
+::因为现在已经备份了vim目录，也做过git的版本控制，所以没有必要再备份了
+::rem 备份_vimrc
 ::设置_vimrc的源路径
-@set vimrcSource=D:\Program Files\Vim\_vimrc
-@copy "%vimrcSource%" "%configBackupPath%\vimrc\_vimrc[备份于lab][%date%]" 
+::@set vimrcSource=D:\Program Files\Vim\_vimrc
+::@copy "%vimrcSource%" "%configBackupPath%\vimrc\_vimrc[备份于lab][%date%]" 
 
 ::备份ftp配置文件
 rem 备份ftp设置
-@copy "D:\Program Files\FileZilla Server\FileZilla Server.xml" "%configBackupPath%\FTP设置\FileZilla Server[备份于lab][%date%].xml"
+::@copy "D:\Program Files\FileZilla Server\FileZilla Server.xml" "%configBackupPath%\FTP设置\FileZilla Server[备份于lab][%date%].xml"
 
 ::-----------------备份svn库---------------------------
 rem 备份svn
-call backupSVN.bat
+::call backupSVN.bat
 
 ::---------------备份weekwork--------------------------
 rem 备份vimwiki中的project 及weekwork
-@HaoZipC a -tzip "E:\GTD\weekworkBackup\[ProjectBackup][%name%]" "%klivePath%\wiki\work\html\*.*"
+::@HaoZipC a -tzip "E:\GTD\weekworkBackup\[ProjectBackup][%name%]" "%klivePath%\wiki\work\html\*.*"
 ::于2012-04-15停止使用weekwrk.mmap 由wiz-—&重要事务提醒 代替
 ::copy "%klivePath%\document\pomodoro\Weekwork.mmap" "E:\GTD\weekworkBackup\[weekworkBackup][%name%].mmap"  
 
-copy "E:\ApplicationData\netDisk\klive\applicationData\TimeLog\ToDo make you better.wiki" "e:\GTD\weekworkBackup\ToDo make you better[%name%].wiki"
+::copy "E:\ApplicationData\netDisk\klive\applicationData\TimeLog\ToDo make you better.wiki" "e:\GTD\weekworkBackup\ToDo make you better[%name%].wiki"
 
 
 ::---------------备份Time.log并使用新的Time.log-------------------
@@ -51,7 +55,7 @@ rem 备份Time.log
 @set TimeLogSource=%klivePath%\applicationData\TimeLog\Time.log
 @set TimeLogBackup=E:\GTD\weekworkBackup\Time[%date%].log 
 ::备份Time.log
-copy "%TimeLogSource%" "%TimeLogBackup%"
+::copy "%TimeLogSource%" "%TimeLogBackup%"
 
 
 ::---------------备份计划任务目录-------------------
@@ -79,23 +83,24 @@ rem 备份注册表
 ::先关掉firefox的进程再复制
 taskkill /f /t /im firefox.exe
 ::拷备firefox用户目录,/y :强制覆盖 /s 复制目录及子目录
-xcopy  "%firefoxSource%" "%firefoxBackup%"  /y /s
+::xcopy  "%firefoxSource%" "%firefoxBackup%"  /y /s
 ::设置pentadactyl父目录路径
 @set pentadactylHome=C:\Documents and Settings\mang2
 ::备份pentadactyl用户目录
-xcopy "%pentadactylHome%\pentadactyl" "%firefoxBackup%\pentadactyl" /y /s 
+::xcopy "%pentadactylHome%\pentadactyl" "%firefoxBackup%\pentadactyl" /y /s 
 ::备份pentadactylrc
-copy /y "%pentadactylHome%"\_pentadactylrc "%firefoxBackup%"
+::copy /y "%pentadactylHome%"\_pentadactylrc "%firefoxBackup%"
 ::------------------备份E盘相关目录-----------------------------
 ::压缩E盘相关目录,压缩文件格式为zip,命名格式为：[lab E盘备份][当前日期] 如：[lab E盘备份][2011-05-07 星期一]
 rem E盘相关备份
-HaozipC a -tzip "F:\share\FTP\mang421\[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 "E:\研&项&论&杂" E:\Repositories E:\ApplicationData E:\other
+::HaozipC a -tzip "F:\share\FTP\mang421\[lab E盘备份][%name%]" E:\Document E:\e-book  E:\labBackup E:\picture E:\学习相关 E:\job E:\GTD E:\GTD0 E:\CodeSpace E:\TIJ4 "E:\研&项&论&杂" E:\Repositories E:\ApplicationData E:\other
 
 ::------------------备份D盘相关目录-------------------------------
 ::压缩D盘相关目录,压缩文件格式为zip,命名格式为：[lab D盘备份][当前日期] 如：[lab D盘备份][2011-05-07 星期一]
 rem D盘相关备份
-HaoZipC a -tzip "F:\share\FTP\mang421\[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath
-
+::HaoZipC a -tzip "F:\share\FTP\mang421\[lab D盘备份][%name%]" D:\cur D:\shortcut "D:\Program Files\Vim" D:\smallToolPath
+::由于D盘空间已满,所以把cur目录纳入到H盘
+::HaoZipC a -tzip "F:\share\FTP\mang421\[lab D盘cur备份][%name%]" H:\cur
 
 ::-------------------删除ditto旧的数据库，启用新的数据库文件--------------------
 ::因为ditto条目太多就比较慢，所以这里定期清理一次。
