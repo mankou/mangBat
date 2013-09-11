@@ -1,4 +1,4 @@
-::last modify:2013-8-9 18:35:51
+::last modify:2013-9-11 19:59:17
 ::Author:mang
 ::Version:2.2
 ::Function:快速关闭相关程序
@@ -47,6 +47,9 @@ echo close ipmsg相关服务......
 
 echo close foxmail相关服务......
 @taskkill /f /t /im Foxmail.exe
+
+echo close FeiQ相关服务......
+@taskkill /f /t /im FeiQ.exe
 
 ::taskkill /f /t /im firefox.exe
 ::pause

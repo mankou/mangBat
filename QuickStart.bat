@@ -43,10 +43,10 @@ E:
 cd "e:\ApplicationData\netDisk\Dropbox\application\viatc"
 start viatc.exe
 
-echo Æô¶¯shaveyaks.mmap
-E:
-cd  "E:\ApplicationData\netDisk\Dropbox\1cur\"
-start ShaveYaks.mmap
+::echo Æô¶¯shaveyaks.mmap
+::E:
+::cd  "E:\ApplicationData\netDisk\Dropbox\1cur\"
+::start ShaveYaks.mmap
 
 
 ::echo Æô¶¯klive¡­¡­
