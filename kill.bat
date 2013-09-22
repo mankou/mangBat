@@ -1,4 +1,4 @@
-::lastmodify:2013-4-9 10:53:42
+::lastmodify:2013-9-22 20:50:30
 ::create 19:52 2012-11-4
 ::Author mang
 ::Version 1.0
@@ -47,4 +47,7 @@ echo close 视频播放相关服务......
 
 echo close MathType相关服务......
 @taskkill /f /t /im MathType.exe
+
+echo close 360Amigo相关服务......
+@taskkill /f /t /im 360Amigo.exe
 ::@pause
